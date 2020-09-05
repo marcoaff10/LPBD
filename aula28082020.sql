@@ -38,4 +38,25 @@ pr.desc_prod = 'chapa de Aco' and
 p.prazo_entr > 15 
 order by c.nome_cli;
 
+select distinct(v.nome_vend) from vendedor v, pedido p, produto pr, item_pedido ip where 
+v.cod_vend = p.cod_vend and
+p.num_ped = ip.num_ped and
+pr_cod_prod = ip.cod_prod;
+
+use aula21082020;
+
+select count(c.cod_cli) from cliente c, vendedor v, pedido p where
+c.cod_cli = p.cod_cli and
+p.cod_vend = v.cod_vend and
+v.nome_vend = 'Ana Cristina';
+
+select count(distinct c.cod_cli), c.cidade from cliente c, pedido p, vendedor v where
+c.cod_cli = p.cod_cli and
+c.cidade in ('rio de janeiro','niteroi') and
+v.nome_vend = 'Ana Cristina'
+group by c.cidade;
+
+
+
+
 
